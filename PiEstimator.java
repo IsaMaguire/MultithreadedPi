@@ -11,7 +11,7 @@ public class PiEstimator {
         points = numPoints;
     }
 
-    // compute the estimate of pi (improve this description!)
+    // compute the estimate of pi by dividing work among threads
     public double getPiEstimate () {
 
         // Shared array that gets edited by each thread
