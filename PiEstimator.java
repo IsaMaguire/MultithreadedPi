@@ -17,11 +17,11 @@ public class PiEstimator {
         // Shared array that gets edited by each thread
         int[] inCirc = new int[threads];
 
-	    Thread[] threadArr = new Thread[threads];
+	Thread[] threadArr = new Thread[threads];
 
         // initialize threads 
-	    for (int i = 0; i < threads; i++) {
-	        threadArr[i] = new Thread(new PiThread(points/threads, i, inCirc));
+	for (int i = 0; i < threads; i++) {
+	    threadArr[i] = new Thread(new PiThread(points/threads, i, inCirc));
     	}
 
         // start all of the threads
@@ -31,13 +31,13 @@ public class PiEstimator {
         }
 
         // wait for all threads to complete
-	    for (Thread t : threadArr) {
-	        try {
-		        t.join();
+	for (Thread t : threadArr) {
+	    try {
+		    t.join();
             }
     	    catch (InterruptedException ignored) {
      		// don't care if t was interrupted
-	        }
+	    }
     	}
 
         // Add up the different results for points in circle and calculate pi
